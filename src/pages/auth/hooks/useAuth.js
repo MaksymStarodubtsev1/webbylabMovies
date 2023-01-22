@@ -1,9 +1,12 @@
 import axios from "axios";
 import {API_UR} from "../../../config/env";
 import {useNavigate} from "react-router-dom";
+import {fetchMovies} from "../../../store/actions-creator/movies";
+import {useDispatch} from "react-redux";
 
 export const useAuth = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   function signIn(form) {
     axios.post(`${API_UR}/users`, form)
@@ -21,6 +24,7 @@ export const useAuth = () => {
         if(res?.data?.token) {
           alert('success')
           localStorage.setItem('token', JSON.stringify(res?.data?.token))
+          dispatch(fetchMovies())
           navigate("/movies")
         } else alert('error')
       })
