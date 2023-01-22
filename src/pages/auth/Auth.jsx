@@ -14,8 +14,7 @@ export const Auth = () => {
   const {signIn} = useAuth()
   return (
     <div>
-      fewfew
-      <button onClick={() => signIn()}>fffe</button>
+
     </div>
   )
 }
