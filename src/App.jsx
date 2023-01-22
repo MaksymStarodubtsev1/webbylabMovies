@@ -9,8 +9,10 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <header className="App-header">
-          <Auth />
         </header>
+        <main>
+          <Auth />
+        </main>
       </div>
     </Provider>
   );

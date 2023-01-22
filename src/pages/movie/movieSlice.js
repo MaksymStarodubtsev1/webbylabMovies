@@ -7,7 +7,7 @@ const movieSlice = createSlice({
   initialState,
   reducers: {
     fetchMovies(state, payload) {
-      return state
+      return payload
     }
   },
 })

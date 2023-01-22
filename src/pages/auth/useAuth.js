@@ -3,7 +3,16 @@ import {API_UR} from "../../config/env";
 
 export const useAuth = () => {
   function signIn(form) {
-    axios.post(`${API_UR}/api/v1/users`, form)
+    axios.post(`${API_UR}users`, form)
+      .then(res => {
+        if(res?.data?.token) {
+          alert('success')
+        } else alert('error')
+      })
+  }
+
+  function logIn(form) {
+    axios.post(`${API_UR}sessions`, form)
       .then(res => {
         if(res?.data?.token) {
           alert('success')
