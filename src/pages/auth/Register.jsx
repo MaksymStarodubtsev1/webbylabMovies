@@ -1,15 +1,17 @@
-import {useAuth} from "./useAuth";
+import {useAuth} from "./hooks/useAuth";
 import {Button, TextField} from "@mui/material";
 import {FormContainer, StyledBox} from "./styled";
 import {useForm} from "react-hook-form";
+import {useNavigate} from "react-router-dom";
 
 export const Register = () => {
   const { register, handleSubmit } = useForm();
   const {signIn} = useAuth()
 
-  const onSubmit = (data) => {
+  function onSubmit(data){
     signIn(data)
   };
+
   const onError = (errors, e) => console.log(errors, e);
 
   return (

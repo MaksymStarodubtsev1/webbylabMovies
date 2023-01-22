@@ -10,8 +10,8 @@ export const FormContainer = styled('div')({
 export const StyledBox = styled(Box)({
   py: 2,
   display: 'flex',
+  flexDirection: 'column',
   gap: '8px 0',
   alignItems: 'center',
-  flexWrap: 'wrap',
-  maxWidth: '200px',
+  maxWidth: '300px',
 });

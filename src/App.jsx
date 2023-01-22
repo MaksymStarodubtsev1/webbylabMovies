@@ -1,7 +1,8 @@
 import {Provider} from 'react-redux'
 import {store} from "./store";
 import './App.css';
-import {Register} from "./pages/auth/Register";
+import {BrowserRouter} from "react-router-dom";
+import {Main} from "./components/Main";
 
 
 function App() {
@@ -10,9 +11,9 @@ function App() {
       <div className="App">
         <header className="App-header">
         </header>
-        <main>
-          <Register />
-        </main>
+        <BrowserRouter>
+          <Main />
+        </BrowserRouter>
       </div>
     </Provider>
   );
