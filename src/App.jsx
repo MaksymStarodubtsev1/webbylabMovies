@@ -1,7 +1,7 @@
 import {Provider} from 'react-redux'
 import {store} from "./store";
 import './App.css';
-import {Auth} from "./pages/auth/Auth";
+import {Register} from "./pages/auth/Register";
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <header className="App-header">
         </header>
         <main>
-          <Auth />
+          <Register />
         </main>
       </div>
     </Provider>
