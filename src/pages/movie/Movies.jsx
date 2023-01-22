@@ -1,11 +1,22 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ListContainer, StyledCard} from "./styled";
 import {Button, CardActions, CardContent, Typography} from "@mui/material";
 import {useMovies} from "./useMovies";
+import {useNavigate} from "react-router-dom";
+import {fetchMovieInfo} from "../../store/actions-creator/movies";
 
 export const Movies = () => {
   const {movies: {moviesList}} = useSelector(state => state)
+  const navigate = useNavigate();
+  const dispatch = useDispatch()
+
+  function handleShowMore(id) {
+    dispatch(fetchMovieInfo)
+    navigate(`/movies/${id}`)
+  }
+
   useMovies()
+
   return (
     <ListContainer>
       {
@@ -25,7 +36,9 @@ export const Movies = () => {
                 </div>
                 <div>
                   <Button size="small">Delete</Button>
-                  <Button size="small">Show More</Button>
+                  <Button onClick={() => handleShowMore(movie.id)} size="small">
+                    Show More
+                  </Button>
                 </div>
               </div>
             </StyledCard>
