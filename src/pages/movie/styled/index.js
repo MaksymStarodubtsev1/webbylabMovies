@@ -11,9 +11,14 @@ export const ListContainer = styled('div')({
 
 export const StyledCard = styled(Card)({
   width: '345px',
-  height: '170px',
+  minHeight: '170px',
   padding: '8px',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between'
 });
+
+export const InfoCard = styled(StyledCard)({
+  alignItems: 'flex-start',
+  padding: '16px'
+})

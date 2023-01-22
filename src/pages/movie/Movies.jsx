@@ -11,7 +11,7 @@ export const Movies = () => {
   const dispatch = useDispatch()
 
   function handleShowMore(id) {
-    dispatch(fetchMovieInfo)
+    dispatch(fetchMovieInfo(id))
     navigate(`/movies/${id}`)
   }
 
