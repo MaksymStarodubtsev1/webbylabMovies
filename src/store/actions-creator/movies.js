@@ -13,7 +13,6 @@ export const fetchMovies = () => {
         }
       })
         .then((res) => {
-          alert('success')
           dispatch(setMovies(res?.data))
         })
     } catch(err) {
