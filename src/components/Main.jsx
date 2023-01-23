@@ -4,8 +4,10 @@ import {Login} from "../pages/auth/Login";
 import RequireAuth from "./RequireAuth";
 import {Movies} from "../pages/movie/Movies";
 import {MovieDetails} from "../pages/movie/MovieDetails";
+import {useMovieList} from "../pages/movie/hooks/useMovieList";
 
 export const Main = () => {
+  useMovieList()
   return (
     <main>
       <Routes>

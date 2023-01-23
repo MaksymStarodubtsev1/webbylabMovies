@@ -1,21 +1,15 @@
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 import {ListContainer, StyledCard} from "./styled";
-import {Button, CardActions, CardContent, Typography} from "@mui/material";
-import {useMovies} from "./useMovies";
+import {Button, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
-import {fetchMovieInfo} from "../../store/actions-creator/movies";
 
 export const Movies = () => {
   const {movies: {moviesList}} = useSelector(state => state)
   const navigate = useNavigate();
-  const dispatch = useDispatch()
 
   function handleShowMore(id) {
-    dispatch(fetchMovieInfo(id))
     navigate(`/movies/${id}`)
   }
-
-  useMovies()
 
   return (
     <ListContainer>
