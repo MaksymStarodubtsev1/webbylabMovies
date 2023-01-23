@@ -28,20 +28,6 @@ export const fetchMovieInfo = (id) => {
   }
 }
 
-export const updateMovieInfo = (id, data) => {
-  return async (dispatch) => {
-    try {
-      Client.patch(`/movies/${id}`, data).then(res => {
-        dispatch(fetchMovies())
-      })
-
-    } catch(err) {
-      console.log(err);
-    }
-
-  }
-}
-
 export const deleteMovie = (id) => {
   return async (dispatch) => {
     try {
@@ -69,5 +55,16 @@ export const addNewMovie = (data) => {
     } catch(err) {
       console.log(err);
     }
+  }
+}
+
+export const importMovies = (file) => {
+  return async (dispatch) => {
+    try {
+      console.log('filefile', file)
+    } catch(err) {
+      console.log(err);
+    }
+
   }
 }
