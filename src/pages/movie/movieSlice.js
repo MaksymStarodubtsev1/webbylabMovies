@@ -10,7 +10,7 @@ const movieSlice = createSlice({
       console.log('state', state)
       return {
         ...state,
-        moviesList: payload?.data
+        moviesList: payload
       }
     },
     setMovieInfo(state, {payload}){

@@ -1,12 +1,12 @@
 import {setMovieInfo, setMovies} from "../../pages/movie/movieSlice";
 import {Client} from "../../api/axios";
 
-export const fetchMovies = () => {
+export const fetchMovies = (data = {}) => {
   return async (dispatch) => {
     try {
-      Client(`/movies`)
-        .then((res) => {
-          dispatch(setMovies(res?.data))
+      Client.get(`/movies`, {params: data })
+        .then(({data: res}) => {
+          if(res?.data?.length > 0) dispatch(setMovies(res?.data))
         })
     } catch(err) {
       console.log(err)

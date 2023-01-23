@@ -2,15 +2,15 @@ import {Provider} from 'react-redux'
 import {store} from "./store";
 import './App.css';
 import {BrowserRouter} from "react-router-dom";
-import {Main} from "./components/Main";
+import {Main} from "./components/main/Main";
+import {Header} from "./components/header/Header";
 
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <header className="App-header">
-        </header>
+        <Header/>
         <BrowserRouter>
           <Main />
         </BrowserRouter>

@@ -17,8 +17,3 @@ export const StyledCard = styled(Card)({
   flexDirection: 'column',
   justifyContent: 'space-between'
 });
-
-export const InfoCard = styled(StyledCard)({
-  alignItems: 'flex-start',
-  padding: '16px'
-})
