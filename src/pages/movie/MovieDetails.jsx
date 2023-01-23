@@ -1,20 +1,22 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ListContainer} from "./styled";
-import {Box, Card, Chip, Divider, Grid, Stack, Typography} from "@mui/material";
+import {Box, Button, Card, Chip, Divider, Grid, Stack, Typography} from "@mui/material";
 import {useMovieList} from "./hooks/useMovieDetails";
+import {updateMovieInfo} from "../../store/actions-creator/movies";
 
 export const MovieDetails = () => {
   useMovieList()
+  const dispatch = useDispatch()
 
-  const {movieInfo} = useSelector(state => state.movies)
+  const {movieInfo: info} = useSelector(state => state.movies)
   return (
-    movieInfo && <ListContainer>
-      <Card key={movieInfo.id} sx={{maxWidth: 360}}>
+    info && <ListContainer>
+      <Card key={info.id} sx={{maxWidth: 360}}>
         <Box sx={{ my: 3, mx: 2 }}>
           <Grid container alignItems="center">
             <Grid item xs>
               <Typography gutterBottom variant="h4" component="div">
-                {movieInfo.title}
+                {info.title}
               </Typography>
             </Grid>
           </Grid>
@@ -22,12 +24,12 @@ export const MovieDetails = () => {
           <Box sx={{ p: 2 }}>
             <Grid item>
               <Typography gutterBottom variant="h6" component="div">
-                format - {movieInfo.format}
+                format - {info.format}
               </Typography>
             </Grid>
             <Grid item>
               <Typography gutterBottom variant="h6" component="div">
-               year - {movieInfo.year}
+               year - {info.year}
               </Typography>
             </Grid>
           </Box>
@@ -43,10 +45,23 @@ export const MovieDetails = () => {
               flexWrap: 'wrap'
           }}
           >
-            {movieInfo?.actors?.map(actor => (
-              <Chip label={actor.name} variant="outlined" />
+            {info?.actors?.map(actor => (
+              <Chip key={actor.id} label={actor.name} variant="outlined" />
             ))}
           </Stack>
+          <Button onClick={() => dispatch(updateMovieInfo({id: info.id, data: {
+              title: "Caaasablanca",
+              year: 1951,
+              format: "DVD",
+              actors: [
+                "Humphrey Bogart",
+                "Ingrid Bergman",
+                "Claude Rains",
+                "Peter Lorre"
+              ]
+            }}))} size="small">
+            Show More
+          </Button>
         </Box>
       </Card>
     </ListContainer>

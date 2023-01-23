@@ -1,17 +1,10 @@
-import axios from "axios";
-import {API_UR} from "../../config/env";
 import {setMovieInfo, setMovies} from "../../pages/movie/movieSlice";
+import {Client} from "../../api/axios";
 
 export const fetchMovies = () => {
   return async (dispatch) => {
     try {
-      const token = JSON.parse(localStorage.getItem('token'))
-
-      axios(`${API_UR}/movies`, {
-        headers: {
-          'Authorization': token
-        }
-      })
+      Client(`/movies`)
         .then((res) => {
           dispatch(setMovies(res?.data))
         })
@@ -24,12 +17,21 @@ export const fetchMovies = () => {
 export const fetchMovieInfo = (id) => {
   return async (dispatch) => {
     try {
-      const token = await JSON.parse(localStorage.getItem('token'))
-      axios.get(`${API_UR}/movies/${id}`, {
-          headers: {
-            'Authorization': token
-          }
-        }).then(res => {
+      Client.get(`/movies/${id}`).then(res => {
+        dispatch(setMovieInfo(res?.data))
+      })
+
+    } catch(err) {
+      console.log(err);
+    }
+
+  }
+}
+
+export const updateMovieInfo = ({id, data}) => {
+  return async (dispatch) => {
+    try {
+      Client.patch(`/movies/${id}`, data).then(res => {
         dispatch(setMovieInfo(res?.data))
       })
 
