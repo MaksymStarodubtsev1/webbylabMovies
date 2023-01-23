@@ -54,3 +54,20 @@ export const deleteMovie = (id) => {
 
   }
 }
+
+export const addNewMovie = (data) => {
+  return async (dispatch) => {
+    try {
+      const newMovie = {
+        ...data,
+        year: data.year.slice(0, 4),
+        actors: data.actors.split(',')
+      }
+      Client.post(`/movies`, newMovie).then(res => {
+        dispatch(fetchMovies())
+      })
+    } catch(err) {
+      console.log(err);
+    }
+  }
+}

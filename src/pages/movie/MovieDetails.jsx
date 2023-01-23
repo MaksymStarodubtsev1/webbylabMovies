@@ -1,12 +1,10 @@
-import {useDispatch, useSelector} from "react-redux";
+import { useSelector} from "react-redux";
 import {ListContainer} from "./styled";
-import {Box, Button, Card, Chip, Divider, Grid, Stack, Typography} from "@mui/material";
-import {useMovieDetails, useMovieList} from "./hooks/useMovieDetails";
-import {updateMovieInfo} from "../../store/actions-creator/movies";
+import {Box, Card, Chip, Divider, Grid, Stack, Typography} from "@mui/material";
+import {useMovieDetails} from "./hooks/useMovieDetails";
 
 export const MovieDetails = () => {
   useMovieDetails()
-  const dispatch = useDispatch()
 
   const {movieInfo: info} = useSelector(state => state.movies)
   return (

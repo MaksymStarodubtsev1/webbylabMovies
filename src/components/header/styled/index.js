@@ -33,3 +33,10 @@ export const StyledTextField = styled(TextField)((
     color: fontcolor,
   },
 }));
+
+export const ModalContainer = styled(Box)({
+  height: '50vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+})

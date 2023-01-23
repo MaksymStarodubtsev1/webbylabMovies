@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {ListContainer, StyledCard} from "./styled";
 import {Box, Button, Typography} from "@mui/material";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {deleteMovie} from "../../store/actions-creator/movies";
 import {useMovieList} from "./hooks/useMovieList";
 
