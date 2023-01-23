@@ -10,7 +10,6 @@ export const SearchContainer = styled(Box)({
 
 export const SelectBox = styled(Box)({
   display: 'flex',
-  maxWidth: '400px',
   gap: '1rem'
 })
 

@@ -4,6 +4,9 @@ import {SearchBox, SearchContainer, SelectBox, StyledSelect, StyledTextField} fr
 import '../../App.css';
 import {fetchMovies} from "../../store/actions-creator/movies";
 import {useDispatch} from "react-redux";
+import {useParams} from "react-router-dom";
+import {useEffect} from "react";
+import {useMovieDetails} from "../../pages/movie/hooks/useMovieDetails";
 
 export const Header = () => {
   const { register, handleSubmit } = useForm();
@@ -32,7 +35,7 @@ export const Header = () => {
             placeholder="search phrase"
             fontcolor="#eee"
           />
-          <Button type="submit" variant="outlined">Search</Button>
+          <Button type="submit" variant="contained">Search</Button>
         </SearchBox>
         <SelectBox>
           <FormControl focused fullWidth>
@@ -46,7 +49,7 @@ export const Header = () => {
               <MenuItem value="actor">Actor</MenuItem>
             </StyledSelect>
           </FormControl>
-          <Button variant="contained" onClick={handleSort}>Sort by name</Button>
+          <Button variant="outlined" onClick={handleSort}>Sort by name</Button>
         </SelectBox>
       </SearchContainer>
     </header>

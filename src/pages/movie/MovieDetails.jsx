@@ -49,19 +49,6 @@ export const MovieDetails = () => {
               <Chip key={actor.id} label={actor.name} variant="outlined" />
             ))}
           </Stack>
-          <Button onClick={() => dispatch(updateMovieInfo(info.id,{
-              title: "Caaasablanca",
-              year: 1951,
-              format: "DVD",
-              actors: [
-                "Humphrey Bogart",
-                "Ingrid Bergman",
-                "Claude Rains",
-                "Peter Lorre"
-              ]
-            }))} size="small">
-            Show More
-          </Button>
         </Box>
       </Card>
     </ListContainer>

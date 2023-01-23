@@ -1,7 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 import {ListContainer, StyledCard} from "./styled";
-import {Button, Typography} from "@mui/material";
-import {useNavigate} from "react-router-dom";
+import {Box, Button, Typography} from "@mui/material";
+import {useNavigate, useParams} from "react-router-dom";
 import {deleteMovie} from "../../store/actions-creator/movies";
 import {useMovieList} from "./hooks/useMovieList";
 
@@ -32,17 +32,19 @@ export const Movies = () => {
                 </Typography>
               </div>
               <div>
-                <div>
+                <Box>
                   <Typography gutterBottom  component="div">
                     {movie.format}
                   </Typography>
-                </div>
-                <div>
-                  <Button onClick={() => handleDelete(movie.id)} size="small">Delete</Button>
+                </Box>
+                <Box>
+                  <Button onClick={() => handleDelete(movie.id)} size="small">
+                    Delete
+                  </Button>
                   <Button onClick={() => handleShowMore(movie.id)} size="small">
                     Show More
                   </Button>
-                </div>
+                </Box>
               </div>
             </StyledCard>
           )
