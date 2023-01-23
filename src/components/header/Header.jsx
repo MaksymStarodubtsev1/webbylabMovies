@@ -1,12 +1,9 @@
-import {Button, FormControl, InputLabel, MenuItem, OutlinedInput, Select, TextField} from "@mui/material";
+import {Button, FormControl, InputLabel, MenuItem} from "@mui/material";
 import {useForm} from "react-hook-form";
 import {SearchBox, SearchContainer, SelectBox, StyledSelect, StyledTextField} from "./styled";
 import '../../App.css';
 import {fetchMovies} from "../../store/actions-creator/movies";
 import {useDispatch} from "react-redux";
-import {useParams} from "react-router-dom";
-import {useEffect} from "react";
-import {useMovieDetails} from "../../pages/movie/hooks/useMovieDetails";
 
 export const Header = () => {
   const { register, handleSubmit } = useForm();

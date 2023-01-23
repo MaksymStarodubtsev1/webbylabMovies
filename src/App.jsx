@@ -1,7 +1,7 @@
 import {Provider} from 'react-redux'
 import {store} from "./store";
 import './App.css';
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Main} from "./components/main/Main";
 import {Header} from "./components/header/Header";
 
@@ -10,8 +10,10 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Header/>
         <BrowserRouter>
+          <Routes>
+            <Route path="movies" element={<Header />} />
+          </Routes>
           <Main />
         </BrowserRouter>
       </div>

@@ -6,7 +6,6 @@ import {useForm} from "react-hook-form";
 export const Login = () => {
   const { register, handleSubmit } = useForm();
   const {logIn} = useAuth()
-
   function onSubmit(data) {
     logIn(data)
   };
