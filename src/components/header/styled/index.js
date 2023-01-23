@@ -9,6 +9,9 @@ export const SearchContainer = styled(Box)({
 })
 
 export const SelectBox = styled(Box)({
+  flex: 1
+})
+export const OptionsBox = styled(Box)({
   display: 'flex',
   gap: '1rem'
 })
