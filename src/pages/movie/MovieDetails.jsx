@@ -1,11 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
 import {ListContainer} from "./styled";
 import {Box, Button, Card, Chip, Divider, Grid, Stack, Typography} from "@mui/material";
-import {useMovieList} from "./hooks/useMovieDetails";
+import {useMovieDetails, useMovieList} from "./hooks/useMovieDetails";
 import {updateMovieInfo} from "../../store/actions-creator/movies";
 
 export const MovieDetails = () => {
-  useMovieList()
+  useMovieDetails()
   const dispatch = useDispatch()
 
   const {movieInfo: info} = useSelector(state => state.movies)
@@ -49,7 +49,7 @@ export const MovieDetails = () => {
               <Chip key={actor.id} label={actor.name} variant="outlined" />
             ))}
           </Stack>
-          <Button onClick={() => dispatch(updateMovieInfo({id: info.id, data: {
+          <Button onClick={() => dispatch(updateMovieInfo(info.id,{
               title: "Caaasablanca",
               year: 1951,
               format: "DVD",
@@ -59,7 +59,7 @@ export const MovieDetails = () => {
                 "Claude Rains",
                 "Peter Lorre"
               ]
-            }}))} size="small">
+            }))} size="small">
             Show More
           </Button>
         </Box>

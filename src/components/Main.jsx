@@ -7,7 +7,7 @@ import {MovieDetails} from "../pages/movie/MovieDetails";
 import {useMovieList} from "../pages/movie/hooks/useMovieList";
 
 export const Main = () => {
-  useMovieList()
+  // useMovieList()
   return (
     <main>
       <Routes>

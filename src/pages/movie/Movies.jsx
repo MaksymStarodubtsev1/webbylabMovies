@@ -1,20 +1,29 @@
-import { useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ListContainer, StyledCard} from "./styled";
 import {Button, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import {deleteMovie} from "../../store/actions-creator/movies";
+import {useMovieList} from "./hooks/useMovieList";
 
 export const Movies = () => {
-  const {movies: {moviesList}} = useSelector(state => state)
+  const {moviesList} = useSelector(state => state.movies)
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
   function handleShowMore(id) {
     navigate(`/movies/${id}`)
   }
 
+  function handleDelete(id) {
+    dispatch(deleteMovie(id))
+  }
+
+  useMovieList()
+
   return (
     <ListContainer>
       {
-        moviesList && moviesList.map(movie => {
+        moviesList.length > 0 && moviesList.map(movie => {
           return (
             <StyledCard key={movie.id} >
               <div>
@@ -29,7 +38,7 @@ export const Movies = () => {
                   </Typography>
                 </div>
                 <div>
-                  <Button size="small">Delete</Button>
+                  <Button onClick={() => handleDelete(movie.id)} size="small">Delete</Button>
                   <Button onClick={() => handleShowMore(movie.id)} size="small">
                     Show More
                   </Button>

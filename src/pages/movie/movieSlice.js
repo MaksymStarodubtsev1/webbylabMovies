@@ -1,12 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const initialState = { moviesList: [] }
+const initialState = { moviesList: [], movieInfo: {} }
 
 const movieSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
     setMovies(state, {payload}) {
+      console.log('state', state)
       return {
         ...state,
         moviesList: payload?.data
