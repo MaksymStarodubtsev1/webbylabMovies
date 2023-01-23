@@ -61,9 +61,7 @@ export const addNewMovie = (data) => {
 export const importMovies = (file) => {
   return async (dispatch) => {
     try {
-      Client.post('movies/import', {movies: file}).then(res => {
-        dispatch(fetchMovies())
-      })
+      Client.post('movies/import', {movies: file})
     } catch(err) {
       console.log(err);
     }

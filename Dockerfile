@@ -1,9 +1,14 @@
-FROM node:current-alpine3.10
+FROM node:lts-alpine
 
 WORKDIR /app
-COPY webbylabMovies/ .
-RUN npm install
-RUN ls
+EXPO NODE_ENV=development
 
-EXPOSE 3000
-CMD [ "npm", "run", "start" ]
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm install
+
+COPY . ./
+
+CMD ["npm", "start"]
