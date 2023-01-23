@@ -22,8 +22,6 @@ export const Header = () => {
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
 
-  const fileRef = createRef()
-
   function onSubmit(data) {
     console.log('daaata', data)
     dispatch(fetchMovies({[data.option]: data.order}))
@@ -37,9 +35,9 @@ export const Header = () => {
     setOpen(true)
   }
 
-  function handleUploadData(){
-    console.log('helllllo', fileRef)
-    dispatch(importMovies(fileRef.current.files[0]))
+  function handleUploadData(e){
+    console.log('helllllo', e.target.files[0])
+    dispatch(importMovies(e.target.files[0]))
   }
 
   return (
@@ -75,12 +73,9 @@ export const Header = () => {
             </FormControl>
           </SelectBox>
           <Button variant="outlined" onClick={handleSort}>Sort by name</Button>
-          <Button variant="outlined" onClick={handleUploadData} >
-            <CachedIcon/>
-          </Button>
           <Button variant="outlined" component="label">
-            <input hidden multiple type="file" ref={fileRef} />
-            <DownloadIcon/>
+            <input onChange={handleUploadData} hidden multiple type="file" />
+            <CachedIcon/>
           </Button>
           <Button variant="outlined" onClick={handleAddMovie}>
             <AddIcon/>
