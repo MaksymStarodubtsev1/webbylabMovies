@@ -1,15 +1,14 @@
-import axios from "axios";
-import {API_URL} from "../../../config/env";
 import {useNavigate} from "react-router-dom";
 import {fetchMovies} from "../../../store/actions-creator/movies";
 import {useDispatch} from "react-redux";
+import {Client} from "../../../api/axios";
 
 export const useAuth = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
   function signIn(form) {
-    axios.post(`${API_URL}/users`, form)
+    Client.post(`/users`, form)
       .then(res => {
         if(res?.data?.token) {
           alert('success')
@@ -19,7 +18,7 @@ export const useAuth = () => {
   }
 
   function logIn(form) {
-    axios.post(`${API_URL}/sessions`, form)
+    Client.post(`/sessions`, form)
       .then(res => {
         if(res?.data?.token) {
           alert('success')
