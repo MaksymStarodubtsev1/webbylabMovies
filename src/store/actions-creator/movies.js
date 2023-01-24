@@ -61,7 +61,14 @@ export const addNewMovie = (data) => {
 export const importMovies = (file) => {
   return async (dispatch) => {
     try {
-      Client.post('movies/import', {movies: file})
+      const bodyFormData = new FormData()
+      bodyFormData.append('movies', file)
+      Client.post('movies/import', bodyFormData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      }).then(({data: {data}}) => {
+        dispatch(fetchMovies())
+        console.log('res', data)
+      })
     } catch(err) {
       console.log(err);
     }

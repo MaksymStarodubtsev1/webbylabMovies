@@ -7,7 +7,6 @@ const movieSlice = createSlice({
   initialState,
   reducers: {
     setMovies(state, {payload}) {
-      console.log('state', state)
       return {
         ...state,
         moviesList: payload

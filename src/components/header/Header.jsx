@@ -12,10 +12,9 @@ import '../../App.css';
 import AddIcon from '@mui/icons-material/Add';
 import {fetchMovies, importMovies} from "../../store/actions-creator/movies";
 import {useDispatch} from "react-redux";
-import {createRef, useRef, useState} from "react";
+import {useState} from "react";
 import {NewMovieDialog} from "./NewMovieDialog";
 import CachedIcon from '@mui/icons-material/Cached';
-import DownloadIcon from '@mui/icons-material/Download';
 
 export const Header = () => {
   const { register, handleSubmit } = useForm();
