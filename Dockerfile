@@ -1,7 +1,6 @@
-FROM node:lts-alpine
+FROM node:16-alpine
 
 WORKDIR /app
-EXPO NODE_ENV=development
 
 ENV PATH /app/node_modules/.bin:$PATH
 
